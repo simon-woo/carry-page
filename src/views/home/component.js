@@ -1,20 +1,18 @@
-import { computed, reactive } from 'vue'
-
-import { useStore } from 'vuex'
+import { reactive } from 'vue'
 
 export default {
   name: 'home',
   setup() {
-    const state = reactive({})
-    const store = useStore()
+    const state = reactive({
+      navList: ['Home', 'Pantas!', 'SPOTLED', 'Contact'],
+      activeNavIndex: 0
+    })
 
-    store.dispatch('home/SET_USER_INFO', { userInfo: { token: 123 } })
-
-    const data = computed(() => store.state.home.userInfo)
+    const changeNav = (index) => state.activeNavIndex = index
 
     return {
       state,
-      data
+      changeNav
     }
   }
 }

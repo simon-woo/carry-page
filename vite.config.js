@@ -7,24 +7,13 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig(({ mode }) => {
-
   console.log('49:26=>', loadEnv(mode, process.cwd()), process.cwd())
-  
+
   return {
     plugins: [vue(), vueJsx()],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
-      }
-    },
-    css: {
-      // postcss: {
-      //   plugins: [cosmixPx2vp]
-      // },
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "@/style/variables.scss";'
-        }
       }
     },
     server: {
